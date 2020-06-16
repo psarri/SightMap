@@ -47,7 +47,7 @@ const MarkerFormContainer = () => {
               name="location"
               type="evilicon"
               color="#517fa4"
-              reverse="true"
+              reverse={true}
             />
           </View>
   )}
@@ -57,7 +57,7 @@ const MarkerFormContainer = () => {
         <View>
           <Input placeholder="ex. Address, Town" onChangeText={(text) => setAddress(text)} value={address} />
           <Input placeholder="description (max 128 characters)" onChangeText={(text) => setDescription(text)} value={description} maxLength={128} />
-          <Button raised="true" onPress={() => onSightSeeingAdded()} title="SAVE" />
+          <Button raised={true} onPress={() => onSightSeeingAdded()} title="SAVE" />
         </View>
       </Card>
     </View>

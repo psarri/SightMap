@@ -10,13 +10,15 @@ import PropTypes from 'prop-types';
 import {
   getMarkers, getUserById, getMarkerById, deleteMarker,
 } from '../services';
+import FetchUserLocation from './FetchUserLocation';
 
-const MapContainer = () => {
+const MapContainer = props => {
   const [user, setUser] = useState(null);
   const [markers, updateMarkers] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState({});
   const [markerUser, setMarkerUser] = useState({});
+//  const [userLocation, setState] = useState(null);
 
   const getUserFromStorage = async () => {
     try {
@@ -27,6 +29,18 @@ const MapContainer = () => {
       console.log(error);
     }
   };
+
+  const getUserLocationHandler = () => {
+    //console.log('Button pressed!')
+    navigator.geolocation.getCurrentPosition(position => {
+      setState({
+        userLocation: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }
+      });
+    }, err => console.log(err));
+  }
 
   useEffect(() => {
     getUserFromStorage();
@@ -69,11 +83,22 @@ const MapContainer = () => {
       Alert.alert('Failure', 'Failed deleting marker');
     }
   };
+
+
+    let userLocationMarker = null;
+
+    if(props.userLocation) {
+      userLocationMarker = <MapView.Marker coordinate={props.userLocation} />
+    }
+
   return (
     <View style={styles.container}>
       <Modal
         isVisible={modalVisible}
       >
+        <View>
+        <FetchUserLocation onGetUserLocation={() => getUserLocationHandler()} />
+        </View>
         <View style={{ flex: 1 }}>
           <Button title="Close" onPress={handleModal} color="#ff7474" />
           <View style={styles.textContainer}>
@@ -102,7 +127,9 @@ const MapContainer = () => {
           latitudeDelta: 0.0992,
           longitudeDelta: 0.0421,
         }}
+        region = {props.userLocation}
         style={styles.mapStyle}
+        {...userLocationMarker}
       >
         {markers && markers.map((marker) => (
           marker && (
