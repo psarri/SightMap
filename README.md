@@ -4,7 +4,7 @@
 * **Paul Oskar Soe**
 * **Simone Niinemägi**
 * **Kristo Roots**
-* *Petrik Sarri*
+* **Petrik Sarri**
 
 
 ## Installatsioon
@@ -33,7 +33,7 @@ Sightmap on kaardipõhine rakendus, kus kasutajatel on võimalik ise luua marker
  
  Kuigi esialgses rakenduses ei ole otseseid kategooriad veel määratud, on tulevikus plaanis luua erinevaid kategooriad, kus kasutajad saavad asukohti teistega jagada.
   
- Näiteks võiks tuua eriliste taimeliikide kategooria, kus kasutajad  saavad jagada eriliste teimede asukohti teistega, kes taimedest huvitatud on. Selle abil on teistel kasutajatel võimalus neid taimi ka päriselus vaatama minna.
+ Näiteks võiks tuua eriliste taimeliikide kategooria, kus kasutajad  saavad jagada eriliste taimede asukohti teistega, kes taimedest huvitatud on. Selle abil on teistel kasutajatel võimalus neid taimi ka päriselus vaatama minna.
  
  ## Tarkvara nõuded
  
@@ -47,7 +47,9 @@ Sightmap on kaardipõhine rakendus, kus kasutajatel on võimalik ise luua marker
  ![Map](pics/3.jpg)
  ![Modal(bot Owned)](pics/4.jpg)
  ![Modal(Other Owned)](pics/5.jpg)
- 
+ ![Get location](pics/6.jpg)
+ ![Your location](pics/7.jpg)
+
 
 
 
